@@ -79,29 +79,154 @@ section{padding:74px 0}
 .theme-btn:hover{border-color:var(--sky);color:var(--sky);transform:rotate(18deg)}
 
 /* ============ NAVBAR — full width, sticky, big shadow ============ */
+/* ============ NAVBAR — full width, sticky, big shadow ============ */
+
 .nav-wrap{
-  position:sticky;top:0;left:0;right:0;z-index:1000;width:100%;
+  position:sticky;
+  top:0;
+  left:0;
+  right:0;
+  z-index:1000;
+  width:100%;
   background:var(--nav-bg);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
   border-bottom:1px solid var(--line);
   box-shadow:var(--nav-shadow);
   transition:background .4s,border-color .4s;
 }
-.navbar{padding:16px 0}
-.brand{display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-style:italic;font-weight:700;
-  letter-spacing:.14em;color:var(--navy);font-size:1.02rem}
-.brand .bx{width:34px;height:34px;border:1px solid var(--sky);border-radius:2px;display:grid;place-items:center;
-  color:var(--sky);font-style:normal}
-.d-links{display:flex;align-items:center;gap:2px}
-.d-links a{color:var(--ink);font-size:.74rem;font-weight:600;font-style:italic;letter-spacing:.12em;text-transform:uppercase;
-  margin:0 8px;padding:8px 2px;position:relative;display:inline-flex;align-items:center;gap:6px}
-.d-links a i{color:var(--sky);font-style:normal;font-size:.85rem}
-.d-links a::after{content:'';position:absolute;left:0;bottom:2px;width:0;height:2px;background:var(--sky);transition:.3s}
-.d-links a:hover::after,.d-links a.active::after{width:100%}
-.d-links a:hover,.d-links a.active{color:var(--navy)}
-.burger{background:none;border:1px solid var(--line);border-radius:2px;color:var(--navy);font-size:1.5rem;
-  line-height:1;display:none;width:42px;height:42px}
-@media(max-width:991px){.d-links{display:none}.burger{display:grid;place-items:center}}
+
+.navbar{
+  padding:16px 0;
+  width:100%;
+}
+
+.nav-wrap .navbar > .container{
+  position:relative;
+  width:100%;
+  max-width:100%;
+  margin:0;
+  padding-left:15px;
+  padding-right:15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  font-weight:700;
+  letter-spacing:.14em;
+  color:var(--navy);
+  font-size:1.02rem;
+  flex-shrink:0;
+}
+
+.brand .bx{
+  width:34px;
+  height:34px;
+  border:1px solid var(--sky);
+  border-radius:2px;
+  display:grid;
+  place-items:center;
+  color:var(--sky);
+  font-style:normal;
+}
+
+/* CENTER NAVIGATION — NO EXTRA SPACING */
+
+.d-links{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:2px;
+  margin:0 !important;
+  white-space:nowrap;
+}
+
+.d-links a{
+  color:var(--ink);
+  font-size:.74rem;
+  font-weight:600;
+  font-style:italic;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin:0 8px;
+  padding:8px 2px;
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+
+.d-links a i{
+  color:var(--sky);
+  font-style:normal;
+  font-size:.85rem;
+}
+
+.d-links a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:2px;
+  width:0;
+  height:2px;
+  background:var(--sky);
+  transition:.3s;
+}
+
+.d-links a:hover::after,
+.d-links a.active::after{
+  width:100%;
+}
+
+.d-links a:hover,
+.d-links a.active{
+  color:var(--navy);
+}
+
+/* RIGHT NAVIGATION */
+
+.nav-wrap .navbar > .container > .d-flex{
+  margin-left:auto !important;
+  flex-shrink:0;
+}
+
+.burger{
+  background:none;
+  border:1px solid var(--line);
+  border-radius:2px;
+  color:var(--navy);
+  font-size:1.5rem;
+  line-height:1;
+  display:none;
+  width:42px;
+  height:42px;
+}
+
+@media(max-width:991px){
+
+  .nav-wrap .navbar > .container{
+    padding-left:15px;
+    padding-right:15px;
+  }
+
+  .d-links{
+    display:none;
+  }
+
+  .burger{
+    display:grid;
+    place-items:center;
+  }
+}
 
 /* ===== MOBILE MENU ===== */
 .m-menu{position:fixed;top:0;left:0;bottom:0;width:min(320px,84vw);background:var(--paper);z-index:1100;
